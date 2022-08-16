@@ -1,6 +1,20 @@
 #include "sort.h"
 
 /**
+ * swap_ints - swaps two integers in an array
+ * @a: first integer to swap
+ * @b: second integer to swap
+ * Return: void has no retrun value
+ */
+void swap_ints(int *a, int *b)
+{
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+/**
  * bubble_sort - sorts an array of integers in asc order
  * @array: pointer to array to sort
  * @size: number of elements
