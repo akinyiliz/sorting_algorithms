@@ -15,29 +15,30 @@ void swap_ints(int *a, int *b)
 	*b = tmp;
 }
 /**
- * bubble_sort - sorts an array of integers in asc order
- * @array: pointer to array to sort
- * @size: number of elements
-*/
+ * bubble_sort - sorts an array of integers in ascending order
+ * @array: array of integers
+ * @size: size of the array
+ * Return: void has no return value
+ */
 void bubble_sort(int *array, size_t size)
 {
-size_t i, len = size;
-short int swapped;
-int tmp;
+	size_t i, len = size;
+	bool bubbly = false;
 
-do {
-	swapped = 0;
-	for (i = 1; i < size; i++)
+	if (array == NULL || size < 2)
+		return;
+	while (bubbly == false)
 	{
-		if (array[i - 1] > array[i])
+		bubbly = true;
+		for (i = 0; i < len - 1; i++)
 		{
-			tmp = array[i];
-			array[i] = array[i - 1];
-			array[i - 1] = tmp;
-			swapped = i;
-			print_array(array, len);
+			if (array[i] > array[i + 1])
+			{
+				swap_ints(array + i, array + i + 1);
+				print_array(array, size);
+				bubbly = false;
+			}
 		}
+		len--;
 	}
-	size = swapped;
-} while (size >= 1);
 }
